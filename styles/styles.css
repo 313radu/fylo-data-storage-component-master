@@ -1,0 +1,264 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100dvh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: hsl(229, 57%, 11%);
+}
+
+body .bg {
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+body .mobile-bg {
+  display: none;
+}
+
+main {
+  max-width: 90em;
+  width: 62em;
+  height: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2em;
+}
+main .icon-section {
+  width: 40%;
+  height: 70%;
+  border-top-right-radius: 40%;
+  background-color: hsl(228, 56%, 26%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+}
+main .icon-section .logo svg {
+  margin-inline-start: 2em;
+}
+main .icon-section .icons {
+  width: 100%;
+  margin-inline-start: 2em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+main .icon-section .icons button {
+  width: 5em;
+  height: 5em;
+  border-radius: 0.9em;
+  background-color: hsl(229, 57%, 11%);
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+main .icon-section .icons button i {
+  font-size: 2.075rem;
+  color: hsl(232, 52%, 63%);
+}
+main .icon-section .icons button:hover i {
+  color: hsl(228, 56%, 26%);
+  font-size: 1.475rem;
+  transition: 300ms linear;
+  color: hsl(243, 100%, 93%);
+  transform: scale(2) translateY(-8px);
+  transition: 300ms linear;
+}
+main .icon-section .icons button:hover {
+  border: 1px solid hsl(243, 100%, 93%);
+  transition: 500ms ease;
+}
+main .icon-section .icons button::before {
+  visibility: hidden;
+  filter: opacity(0);
+  transition: 300ms ease;
+}
+main .icon-section .icons button:hover::before {
+  content: attr(data-name);
+  width: 100%;
+  height: 1.5em;
+  position: absolute;
+  bottom: -2em;
+  left: 0;
+  color: white;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  visibility: visible;
+  filter: opacity(1);
+  transition: 300ms ease;
+}
+main .storage-section {
+  width: 60%;
+  height: 50%;
+  border-radius: 0.5em;
+  background-color: hsl(228, 56%, 26%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  padding-left: 3em;
+  position: relative;
+}
+main .storage-section .info {
+  text-align: left;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  color: hsl(243, 100%, 93%);
+  font-size: 0.875rem;
+}
+main .storage-section .info span {
+  font-weight: 700;
+  color: hsl(243, 100%, 93%);
+  font-size: 1.275rem;
+  margin-inline: 0.3em 0.3em;
+}
+main .storage-section .storage-bar {
+  width: 90%;
+  height: 1.2em;
+  border-radius: 1em;
+  background-color: hsl(229, 57%, 11%);
+  /* Keyframes for gradient animation */
+  /* Keyframes for shadow animation */
+}
+main .storage-section .storage-bar .active-bar {
+  width: 1%;
+  height: 99%;
+  background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%)); /* Set initial gradient */
+  background-size: 200% 200%; /* Required for animation effect */
+  position: relative;
+  border: 2px solid black;
+  border-radius: 1em;
+  animation: gradientAnimation 3s ease infinite, shadowAnimation 3s ease infinite; /* Animation for gradient and shadow */
+}
+main .storage-section .storage-bar .active-bar::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 0em;
+  right: 0.1em;
+  background-color: hsl(243, 100%, 93%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Initial white shadow for the circle */
+  animation: shadowAnimation 3s ease infinite; /* Animation for shadow */
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  50% {
+    background-position: 100% 50%; /* Middle position */
+  }
+  100% {
+    background-position: 0% 50%; /* End position */
+  }
+}
+@keyframes shadowAnimation {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Initial shadow */
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Enlarged shadow at midpoint */
+  }
+}
+main .storage-section .min-max {
+  width: 90%;
+  height: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+main .storage-section .min-max p {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  color: hsl(243, 100%, 93%);
+  font-size: 0.875rem;
+}
+main .storage-section .dialog-box {
+  width: 10em;
+  height: 4em;
+  background-color: white;
+  position: absolute;
+  top: -3em;
+  right: 3.5em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8em;
+  font-family: "Raleway", sans-serif;
+}
+main .storage-section .dialog-box span {
+  font-weight: 700;
+  font-size: 1.875rem;
+}
+main .storage-section .dialog-box p {
+  font-size: 0.775rem;
+  font-weight: 400;
+  color: hsl(229, 7%, 55%);
+}
+main .storage-section .dialog-box::before {
+  content: "";
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  bottom: -1.2em;
+  right: 0;
+  background: linear-gradient(to top right, transparent 50%, white 50%);
+}
+
+@media (width < 53.125em) {
+  body .desktop-bg {
+    display: none;
+  }
+  body .mobile-bg {
+    display: block;
+    height: 100%;
+  }
+  main {
+    height: 25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .icon-section {
+    width: 90%;
+    height: 70%;
+  }
+  main .storage-section {
+    width: 90%;
+    height: 50%;
+    position: relative;
+  }
+  main .storage-section .dialog-box {
+    width: 12em;
+    height: 5em;
+    position: absolute;
+    top: 7em;
+    left: 50%;
+    transform: translate(-50%, 10%);
+  }
+  main .storage-section .dialog-box::before {
+    display: none;
+  }
+}/*# sourceMappingURL=styles.css.map */
